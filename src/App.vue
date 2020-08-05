@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>
+      <a @click="goBack">返回</a>
+    </p>
+    <router-link to="/home">Home</router-link> | 
+    <router-link to="/mart">Mart</router-link> | 
+    <router-link to="/vuexdemo">Vuex Demo</router-link> | 
+
+    <!-- <p>this.$route:{{this.$route}}</p>
+    <p>this.$router:{{this.$router}}</p> -->
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods:{
+    goBack(){
+      window.history.length?this.$router.go(-1):this.$router.push("/")
+    }
   }
 }
 </script>
