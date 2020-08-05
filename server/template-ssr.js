@@ -9,10 +9,11 @@ const path = require("path")
 
 server.get("*", (req, res) => {
     const app = new Vue({
-        template: "<div @click='onClick'>hello {{ name }}</div>",
+        template: "<div @click='onClick'>hello {{ name }} -- {{ url }}</div>",
         data() {
             return {
-                name: "lddddddddd"
+                name: "lddddddddd",
+                url:req.url
             }
         },
         methods: {
