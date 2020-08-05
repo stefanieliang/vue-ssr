@@ -9,7 +9,7 @@ const store = new Vuex.Store({
     },
     mutations:{
         increment(state,payload){
-            state.count += payload.step;
+            state.count += payload.step || 1;
         }
     },
     actions:{

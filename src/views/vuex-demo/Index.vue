@@ -1,13 +1,13 @@
 <template>
   <div>
-      <button @click="increment"> 同步 + {{payload.step}}</button>
-      <button @click="incrementAsync"> 异步 + {{payload.step}}</button>
+      <button @click="increment(payload)"> 同步 + {{payload.step}}</button>
+      <button @click="incrementAsync(payload)"> 异步 + {{payload.step}}</button>
       <p>{{count}}</p>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
     data(){
         return{
@@ -20,12 +20,16 @@ export default {
         ...mapState(['count']),
     },
     methods:{
-        increment(){
-            this.$store.commit('increment',this.payload)
-        },
-        incrementAsync(){
-            this.$store.dispatch('incrementAsync',this.payload)
-        }
+        // 方法调用时传递参数，可以传递载荷 @click="increment(payload)"
+        ...mapMutations(['increment']),
+        ...mapActions(['incrementAsync']),
+
+        // increment(payload){
+        //     this.$store.commit('increment',payload)
+        // },
+        // incrementAsync(payload){
+        //     this.$store.dispatch('incrementAsync',payload)
+        // }
     }
 
 }
