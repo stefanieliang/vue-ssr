@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import './plugins/axios'
 import App from './App.vue'
+
 // import { createRouter } from './router/index';
-import router from './router/index'
-import store from './store/index'
+import store from './store'
+import router from './router'
 
 Vue.config.productionTip = false
 
@@ -18,7 +20,7 @@ Vue.config.productionTip = false
 // }
 
 new Vue({
-  router,
   store,
+  router,
   render:h=>h(App)
 }).$mount("#app")

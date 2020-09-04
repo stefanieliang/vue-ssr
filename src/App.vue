@@ -3,27 +3,29 @@
     <p>
       <a @click="goBack">返回</a>
     </p>
-    <router-link to="/home">Home</router-link> | 
-    <router-link to="/mart">Mart</router-link> | 
-    <router-link to="/vuexdemo">Vuex Demo</router-link> | 
-
+    <router-link to="/home">Home</router-link>|
+    <router-link to="/mart">Mart</router-link>|
+    <router-link to="/vuexdemo">Vuex Demo</router-link>|
+    <p>
+      <span v-n="2"></span>
+    </p>
     <!-- <p>this.$route:{{this.$route}}</p>
-    <p>this.$router:{{this.$router}}</p> -->
+    <p>this.$router:{{this.$router}}</p>-->
 
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+import "./directive/n";
 export default {
-  name: 'App',
-  methods:{
-    goBack(){
-      window.history.length?this.$router.go(-1):this.$router.push("/")
-    }
-  }
-}
+  name: "App",
+  methods: {
+    goBack() {
+      window.history.length ? this.$router.go(-1) : this.$router.push("/");
+    },
+  },
+};
 </script>
 
 <style>
